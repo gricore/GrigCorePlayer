@@ -40,14 +40,23 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Expression.Interactions">
+      <HintPath>..\..\packages\Prism.4.1.0.0\lib\NET40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.Prism">
       <HintPath>D:\Assemblies\Microsoft.Practices.Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.Interactivity">
+      <HintPath>..\..\packages\Prism.4.1.0.0\lib\NET40\Microsoft.Practices.Prism.Interactivity.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.Unity">
       <HintPath>D:\Assemblies\Microsoft.Practices.Unity.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>..\..\packages\Prism.4.1.0.0\lib\NET40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -61,6 +70,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\SearchBoxKeyUpCommandClass.cs" />
     <Compile Include="HomeModule.cs" />
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\IHomeView.cs" />
@@ -92,8 +102,25 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\GrigCore.Models\GrigCore.Models.csproj">
+      <Project>{9271190b-59f9-4481-b976-6140857c8e09}</Project>
+      <Name>GrigCore.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\GrigCore.Services\GrigCore.Services.csproj">
+      <Project>{E31D0B44-9D90-4976-8FC5-1AC833F501A1}</Project>
+      <Name>GrigCore.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Artist.Module\Artist.Module.csproj">
+      <Project>{C229F14B-26AA-4533-9D1A-A78C2B9C15D2}</Project>
+      <Name>Artist.Module</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Skins\HomeViewSkin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\HomeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Input;
 using Artist.Module.Views;
-using Microsoft.Practices.Prism.Regions;
 using Navigation.Module.Models;
+using GrigCore.Services.Helpers;
 
 namespace Navigation.Module.Commands
 {
@@ -10,16 +10,16 @@ namespace Navigation.Module.Commands
     {
         #region Fields
 
-        private readonly IRegionManager _regionManager;
+        private readonly IGrigCoreNavigationService _grigCoreNavigationService;
         public event EventHandler CanExecuteChanged;
 
         #endregion
 
         #region Ctor
 
-        public ArtistClickCommandClass(IRegionManager regionManager)
+        public ArtistClickCommandClass(IGrigCoreNavigationService grigCoreNavigationService)
         {
-            _regionManager = regionManager;
+            _grigCoreNavigationService = grigCoreNavigationService;
         }
 
         #endregion
@@ -32,12 +32,11 @@ namespace Navigation.Module.Commands
         }
 
 
-
         public void Execute(object parameter)
         {
-            _regionManager.Regions["NavigationFrame"].RequestNavigate(typeof(ArtistView).FullName);
+            _grigCoreNavigationService.NavigateTo(typeof(ArtistView).FullName);
         }
 
         #endregion
-    }   
+    }
 }

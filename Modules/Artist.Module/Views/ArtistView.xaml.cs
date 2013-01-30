@@ -1,4 +1,5 @@
-﻿using Artist.Module.Models;
+﻿using System.Windows;
+using Artist.Module.Models;
 using Artist.Module.Presenters;
 using Microsoft.Practices.Unity;
 
@@ -14,5 +15,7 @@ namespace Artist.Module.Views
             InitializeComponent();
             DataContext = container.Resolve<IArtistPresenter>();
         }
+
+       
     }
 }

@@ -3,11 +3,37 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-       Background="CornflowerBlue" 
-      
-	Title="HomeView">
+      Background="WhiteSmoke" Title="HomeView" 
+      xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity">
+
+    <Page.Resources>
+        <ResourceDictionary Source="/Home.Module;component/Skins/HomeViewSkin.xaml">
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!-- Search Box -->
+        <Border Style="{StaticResource SearchBoxBorderStyle}">
+            <TextBox Text="{Binding Path=Model.SearchBoxText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     Name="SearchBoxTextBox" Style="{StaticResource SearchBoxTextBoxStyle}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="KeyDown">
+                        <i:InvokeCommandAction Command="{Binding SearchBoxKeyUpCommand}"
+                                                 CommandParameter="{Binding Model}" />
+
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBox>
+        </Border>
 
     </Grid>
 </Page>

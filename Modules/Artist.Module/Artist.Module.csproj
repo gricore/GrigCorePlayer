@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArtistModule.cs" />
+    <Compile Include="Commands\ArtistViewLoadedCommandClass.cs" />
     <Compile Include="Models\IArtistView.cs" />
     <Compile Include="Presenters\ArtistPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -101,7 +102,12 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\GrigCore.Models\GrigCore.Models.csproj">
+      <Project>{9271190B-59F9-4481-B976-6140857C8E09}</Project>
+      <Name>GrigCore.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Page Include="Views\ArtistView.xaml">
       <SubType>Designer</SubType>

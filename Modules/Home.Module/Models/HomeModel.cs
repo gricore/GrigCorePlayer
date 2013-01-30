@@ -8,7 +8,7 @@ namespace Home.Module.Models
 {
     public class HomeModel : NotificationObject
     {
-        private string _searchBoxText = string.Empty;
+        private string _searchBoxText = "Enter artist name";
 
         public string SearchBoxText
         {

@@ -56,6 +56,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\GrigCore.Services\GrigCore.Services.csproj">
+      <Project>{E31D0B44-9D90-4976-8FC5-1AC833F501A1}</Project>
+      <Name>GrigCore.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Artist.Module\Artist.Module.csproj">
       <Project>{C229F14B-26AA-4533-9D1A-A78C2B9C15D2}</Project>
       <Name>Artist.Module</Name>

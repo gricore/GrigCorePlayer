@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
-using Microsoft.Practices.Prism.Regions;
+using GrigCore.Services.Helpers;
 using Navigation.Module.Models;
 using User.Module.Views;
 
@@ -10,16 +10,16 @@ namespace Navigation.Module.Commands
     {
         #region Fields
 
-        private readonly IRegionManager _regionManager;
         public event EventHandler CanExecuteChanged;
+        private readonly IGrigCoreNavigationService _grigCoreNavigationService;
 
         #endregion
 
         #region Ctor
 
-        public UserClickCommandClass(IRegionManager regionManager)
+        public UserClickCommandClass(IGrigCoreNavigationService grigCoreNavigationService)
         {
-            _regionManager = regionManager;
+            _grigCoreNavigationService = grigCoreNavigationService;
         }
 
         #endregion
@@ -32,10 +32,9 @@ namespace Navigation.Module.Commands
         }
 
 
-
         public void Execute(object parameter)
         {
-            _regionManager.Regions["NavigationFrame"].RequestNavigate(typeof(UserView).FullName);
+            _grigCoreNavigationService.NavigateTo(typeof(UserView).FullName);
         }
 
         #endregion

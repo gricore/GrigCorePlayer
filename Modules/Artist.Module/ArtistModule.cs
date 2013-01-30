@@ -1,9 +1,13 @@
 ﻿using System;
 using Artist.Module.Models;
+using GrigCore.Models;
+using GrigCore.Models.SentModels;
 using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Unity;
 using Artist.Module.Views;
 using Artist.Module.Presenters;
+using Microsoft.Practices.Prism.Events;
+using Artist.Module.Commands;
 
 namespace Artist.Module
 {
@@ -24,6 +28,10 @@ namespace Artist.Module
 
             // Register for navigation
             _container.RegisterType<Object, ArtistView>(typeof(ArtistView).FullName);
+
+            // Register commands
+            _container.RegisterType<IArtistViewLoadedCommand, ArtistViewLoadedCommandClass>();
         }
+
     }
 }
